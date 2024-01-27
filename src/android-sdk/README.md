@@ -7,7 +7,7 @@ Android SDK
 
 ```json
 "features": {
-    "ghcr.io/jarrodcolburn/features/android-sdk:0": {}
+    "ghcr.io/yswtrue/features/android-sdk:0": {}
 }
 ```
 
@@ -23,4 +23,4 @@ Android SDK
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/jarrodcolburn/features/blob/main/src/android-sdk/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/yswtrue/features/blob/main/src/android-sdk/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
