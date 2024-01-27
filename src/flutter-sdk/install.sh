@@ -26,7 +26,7 @@ HASH=$(jq ".current_release.$RELEASE" $RELEASES_JSON)
 FLUTTER_ARCHIVE=$(jq -r ".releases[] | select(.hash==$HASH) | .archive" releases_linux.json)
 
 } || { # catch
-FLUTTER_ARCHIVE=$(jq -r ".releases[] | select(.version==$RELEASE) | .archive" releases_linux.json)
+FLUTTER_ARCHIVE=$(jq -r ".releases[] | select(.version==\"$RELEASE\") | .archive" releases_linux.json)
 }
 
 curl -O "$RELEASES_URL/$FLUTTER_ARCHIVE"
