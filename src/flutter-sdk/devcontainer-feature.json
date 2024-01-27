@@ -5,9 +5,9 @@
     "description": "Install the Flutter SDK",
     "documentationURL": "https://github.com/jarrodcolburn/features/blob/main/src/flutter-sdk",
     "containerEnv": {
-        "FLUTTER_HOME" : "$_REMOTE_USER_HOME/flutter",
+        "FLUTTER_HOME": "$_REMOTE_USER_HOME/flutter",
         "FLUTTER_ROOT": "$FLUTTER_HOME",
-        "PUB_CACHE"  : "$FLUTTER_HOME/.pub-cache",
+        "PUB_CACHE": "$FLUTTER_HOME/.pub-cache",
         "PATH": "$PATH:$FLUTTER_HOME/bin:$PUB_CACHE/bin"
     },
     "customizations": {
@@ -26,7 +26,7 @@
                 "stable"
             ],
             "default": "stable",
-            "description": "Flutter release. Currently synonymous with channel. But in the future, a release may also be a specific version of Flutter, e.g. 3.7.1"
+            "description": "Flutter release. Default is stable."
         }
     }
 }

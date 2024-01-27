@@ -20,8 +20,15 @@ cd "$TMP_DIR"
 curl -O "$RELEASES_URL/$RELEASES_JSON"
 
 # Download and extract Flutter SDK
+{ # try
+
 HASH=$(jq ".current_release.$RELEASE" $RELEASES_JSON)
 FLUTTER_ARCHIVE=$(jq -r ".releases[] | select(.hash==$HASH) | .archive" releases_linux.json)
+
+} || { # catch
+FLUTTER_ARCHIVE=$(jq -r ".releases[] | select(.version==$RELEASE) | .archive" releases_linux.json)
+}
+
 curl -O "$RELEASES_URL/$FLUTTER_ARCHIVE"
 tar -xf "$TMP_DIR/$(basename "$FLUTTER_ARCHIVE")" -C "$(dirname "$FLUTTER_HOME")"
 chown --recursive "$_REMOTE_USER:$_REMOTE_USER" "$FLUTTER_HOME"
@@ -33,5 +40,5 @@ rm -rf "$TMP_DIR"
 apt clean
 
 # Verify installation
-su - "$_REMOTE_USER" 
+su - "$_REMOTE_USER"
 flutter doctor
